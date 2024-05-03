@@ -1,0 +1,80 @@
+/*
+
+Getter ve Setter:
+Anımsatıcı: Getter için bir "el" görseli, setter için bir "ok" görseli kullanabilirsiniz. El, bilginin dışarıya "verildiğini", ok ise bilginin dışarıdan "alındığını" temsil eder.
+
+Hikaye Anlatımı: Bir kütüphaneyi hayal edin. Getter, kütüphaneden kitap almak gibidir. Kitabı okuduktan sonra kütüphaneye geri iade edersiniz. Setter ise kütüphaneye kitap iade etmek gibidir.
+
+Getter: Bir nesnenin özel bir değişkeninin değerini dışarıdan okumak için kullanılır.
+
+Setter: Bir nesnenin özel bir değişkeninin değerini 
+dışarıdan değiştirmek için kullanılır.
+
+class Kisi {
+  String _isim; // Özel değişken
+
+  String get isim => _isim; // Getter
+
+  set isim(String yeniIsim) => _isim = yeniIsim; // Setter
+}
+
+void main() {
+  Kisi kisi = Kisi();
+  kisi.isim = "Ahmet"; // Setter kullanımı
+  print(kisi.isim); // Getter kullanımı
+}
+***************************************************************************************
+Private:
+
+Yerleştirme: Private kavramını bir evin kilitli odasına benzetebilirsiniz. Odaya sadece evin sahibi girebilir.
+
+
+Private: Bir nesnenin üyelerini (değişkenler, metotlar) sadece o nesnenin içinde erişilebilir hale getirir.
+_ ön eki ile tanımlanır.
+
+class Kisi {
+  String _isim; // Özel değişken
+
+  String get isim => _isim; // Public getter
+
+  void _isimDegistir(String yeniIsim) => _isim = yeniIsim; // Private metot
+
+  void isimAta(String yeniIsim) {
+    _isimDegistir(yeniIsim); // Private metota erişim
+  }
+}
+
+void main() {
+  Kisi kisi = Kisi();
+  kisi.isim = "Ahmet"; // Public setter kullanımı
+  // kisi._isimDegistir("Mehmet"); // Hata: Private metota erişim yok
+  kisi.isimAta("Mehmet"); // Public metot ile private metota erişim
+}
+
+*************************************************************************************************
+Kurucular (Constructors):
+
+Hikaye Anlatımı: Bir binanın inşa edilmesi hikayesini düşünün. Kurucular, binanın temelini oluşturur ve binanın nasıl inşa edileceğini belirler.
+
+Kurucular (Constructors): Nesneler oluşturulurken ilk çalıştırılan metotlardır. Nesnenin ilk değerlerini atamak için kullanılır.
+
+class Kisi {
+  String isim;
+  int yas;
+
+  Kisi(this.isim, this.yas); // Kurucu
+
+  void bilgileriYazdir() {
+    print("Isim: $isim, Yas: $yas");
+  }
+}
+
+void main() {
+  Kisi kisi1 = Kisi("Ahmet", 25); // Kurucunun kullanımı
+  Kisi kisi2 = Kisi("Ayşe", 30);
+
+  kisi1.bilgileriYazdir();
+  kisi2.bilgileriYazdir();
+}
+
+*/
